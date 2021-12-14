@@ -1,3 +1,18 @@
+const session = window.location.href.split("?")[1];
+const userCon = document.getElementById("username");
+
+console.log(session);
+const url = `https://micro-okta.herokuapp.com/api/name?${session}`
+$.ajax({
+      type : 'GET',
+      url : url,
+      success: function (name) {
+          console.log(name);
+          userCon.innerHTML = `Hello ${name}`
+			}
+		});
+
+
 var topIcon = document.querySelector('.icon');
 var nav = document.querySelector('.nav-lin');
 var navLi = document.querySelectorAll('.nav-lin li')
